@@ -18,7 +18,6 @@ const LocalStrategy = require('passport-local').Strategy
 passport.use(new LocalStrategy(function (username, password, done) {
   UserService.findOne(username)
     .then(user => {
-      // console.log(user)
       if (!user) return done(null, false, {
         message: 'Incorrect username.'
       })
